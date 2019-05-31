@@ -1,0 +1,33 @@
+import {Component, Input} from '@angular/core';
+
+
+@Component({
+    selector: 'event-thumbnail',
+    template:`
+    <div class="well hoverwell thumbnail">
+    <h2>{{event?.name}}</h2>
+    <div>Date: {{event?.date}}</div>
+    <div>Price: \${{event?.price}}</div>
+    <div>
+       <span>Location: {{event?.location.address}}</span>
+       <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
+    </div>
+    <div>
+        Online Url: {{event?.onlineUrl}},
+        
+    </div>
+    </div>
+    `,
+    styles:[`
+        .thumbnail {min-height: 210px;}
+        .pad-left {margin-left:10px;}
+        .well h2 {color: #D8C4C4}
+        `
+    ]
+})
+
+export class EventThumbnailComponent
+{
+    @Input() event: any;  
+
+}
