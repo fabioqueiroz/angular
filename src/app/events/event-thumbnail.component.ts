@@ -1,4 +1,6 @@
 import {Component, Input} from '@angular/core';
+import { bindCallback } from 'rxjs';
+import { type } from 'os';
 
 
 @Component({
@@ -12,7 +14,7 @@ import {Component, Input} from '@angular/core';
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
         <span *ngSwitchDefault>(Normal Start)</span>
     </div>
-    <div>Price: \${{event?.price}}</div>
+    <div [ngStyle]="getStyle()">Price: \${{event?.price}}</div>
     <div>
        <span>Location: {{event?.location.address}}</span>
        <span class="pad-left">{{event?.location?.city}}, {{event?.location?.country}}</span>
@@ -30,6 +32,7 @@ import {Component, Input} from '@angular/core';
         .early-color {color: #4DD22C; !important}
         .late-color {color: #E1BA1D; !important;}
         .bold {font-weight: bold;}
+
         `
     ]
 })
@@ -50,5 +53,15 @@ export class EventThumbnailComponent
             return 'late-color bold';
         }
         return[];
+    }
+
+    getStyle()
+    {
+        if(this.event && this.event.price > 800)
+        {
+            return {color: '#9C7EE1', 'font-style': 'italic'};
+        }
+
+        return {};
     }
 }
