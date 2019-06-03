@@ -8,7 +8,6 @@ import {ToastrService} from '../common/toastr.service';
    template: `
    <div>
       <h1> Test list </h1>
-      <div class="well"><div>title</div></div>
       <div  class="row">
          <div *ngFor="let item of events" class="col-md-5">
           <event-thumbnail (click)="handleThumbnailClick(item.name)" [event] = "item"></event-thumbnail>

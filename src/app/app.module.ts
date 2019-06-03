@@ -16,8 +16,6 @@ import { Error404Component } from './errors/404.component';
 import { EventRouteActivator } from './events/event-details/event-route.activator.service';
 
 
-
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,7 +30,25 @@ import { EventRouteActivator } from './events/event-details/event-route.activato
     CreateEventComponent,
     Error404Component   
   ],
-  providers: [EventService, ToastrService, EventRouteActivator],
+  providers: [
+    EventService, 
+    ToastrService, 
+    EventRouteActivator,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkCancelState
+    }
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+
+export function checkCancelState(component:CreateEventComponent)
+{
+  if (component.isCancelled) 
+  {
+    return window.confirm("Cancel without saving?")
+  }
+
+  return true;
+}

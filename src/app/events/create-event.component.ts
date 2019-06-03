@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 })
 export class CreateEventComponent {
 
+    isCancelled = true
+    
     constructor(private router:Router)
     {
 
