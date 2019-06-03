@@ -32,3 +32,6 @@
   .toast-warning {
     background-color: #f89406;
   }
+  .cancel-btn{
+    margin-left: 10px;
+  }

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
         <div class="col-md-6">
             <h3>[New form will go here]</h3>
             <button type="submit" class="btn btn-primary" >Save</button>
-            <button type="button" class="btn btn-secondary" (click)="clickCancel()">Cancel</button>
+            <button type="button" class="btn btn-secondary cancel-btn" (click)="clickCancel()">Cancel</button>
         </div>
 
     `
