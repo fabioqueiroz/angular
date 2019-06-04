@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { IEvent } from './shared/index';
 
 
 
@@ -38,7 +39,7 @@ import {Component, Input} from '@angular/core';
 
 export class EventThumbnailComponent
 {
-    @Input() event: any;  
+    @Input() event: IEvent  
 
     getStartTime()
     {
