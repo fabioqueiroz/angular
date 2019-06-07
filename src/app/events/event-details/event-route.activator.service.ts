@@ -13,7 +13,7 @@ export class EventRouteActivator implements CanActivate
 
     canActivate(route: ActivatedRouteSnapshot)
     {
-       const eventExists =  !!this.eventService.getSingleEvent(+ route.params['id']);
+       const eventExists =  !!this.eventService.getSingleEvent( + route.params['id']);
 
        if (!eventExists)
        {

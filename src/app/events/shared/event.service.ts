@@ -6,7 +6,7 @@ import { IEvent } from './event.model';
 
 export class EventService
 {
-    getEvents(): Observable<IEvent[]>    {
+    public getEvents(): Observable<IEvent[]>    {
       let subject = new Subject<IEvent[]>();
 
       setTimeout(()=>
@@ -18,9 +18,16 @@ export class EventService
        return subject;
     }
 
-    getSingleEvent(id: number): IEvent
+    public getSingleEvent(id: number): IEvent
     {
         return EVENTS.find(e => e.id === id);
+    }
+
+    public saveEvent(event)
+    {
+      event.id = 999;
+      event.session = [];
+      EVENTS.push(event);
     }
 }
 
@@ -103,7 +110,7 @@ const EVENTS: IEvent[] =
             driving cars and butler-bots in no time.`,
             voters: ['bradgreen', 'igorminar']
           }
-        ]
+        ],
       },
       {
         id: 2,
