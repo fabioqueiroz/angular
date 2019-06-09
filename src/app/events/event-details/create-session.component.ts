@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ISession } from '../shared/event.model';
+import { ISession, restrictedWords } from '../shared/index';
 
 
 
@@ -39,7 +39,7 @@ export class CreateSessionComponent implements OnInit
         this.presenter = new FormControl('', Validators.required);
         this.duration = new FormControl('', Validators.required);
         this.level = new FormControl('', Validators.required);
-        this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400)]);
+        this.abstract = new FormControl('', [Validators.required, Validators.maxLength(400), restrictedWords(['test1', 'test2'])]);
 
         this.newSessionForm = new FormGroup(
         {
@@ -69,4 +69,19 @@ export class CreateSessionComponent implements OnInit
 
         console.log(session);
     }
+
+    // private restrictedWords(words) // this.restrictedWords(['test1', 'test2']
+    // {
+    //     return (control: FormControl) : {[key: string] : any} =>
+    //     {
+    //         if (!words) 
+    //         {
+    //             return null;    
+    //         }
+
+    //         var invalidWords = words.map(w => control.value.includes(w) ? w : null).filter(w => w!= null);
+
+    //         return invalidWords && invalidWords.length > 0 ? {'restrictedWords': invalidWords.join(', ')} : null;
+    //     }
+    // }
 }
