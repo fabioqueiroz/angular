@@ -19,7 +19,6 @@ import { IEvent } from './shared';
 export class CreateEventComponent {
 
     isCancelled = true
-    newEvent: IEvent
     
     constructor(private router:Router, private eventService: EventService)
     {
