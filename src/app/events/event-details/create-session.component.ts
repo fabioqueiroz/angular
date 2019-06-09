@@ -7,6 +7,15 @@ import { ISession } from '../shared/event.model';
 @Component(
 {
     templateUrl: './create-session.component.html',
+    styles: [`
+    em { float: right; color: #E05C65; padding-left: 10px; }
+    .error input, .error select, .error textarea { background-color: #E3C3C5; }
+    .error ::-webkit-input-placeholder { color: #999; }
+    .error ::-moz-placeholder { color: #999; }
+    .error :-moz-placeholder { color: #999; }
+    .error :ms-input-placeholder { color: #999; }
+  
+  `]
 
 })
 
@@ -35,6 +44,7 @@ export class CreateSessionComponent implements OnInit
         this.newSessionForm = new FormGroup(
         {
             name: this.name,
+            presenter: this.presenter,
             duration: this.duration,
             level: this.level,
             abstract: this.abstract,
@@ -43,17 +53,20 @@ export class CreateSessionComponent implements OnInit
 
     public saveSession(formValues)
     {
-        console.log(formValues);
+        // console.log(formValues);
 
-        // let session: ISession = 
-        // {
-        //     id: undefined,
-        //     name: formValues.name,
-        //     duration: formValues.duration,
-        //     level: formValues.level,
-        //     abstract: formValues.abstract,
-        //     voters: []
+        let session: ISession = 
+        {
+            id: undefined,
+            name: formValues.name,
+            presenter: formValues.presenter,
+            duration: + formValues.duration,
+            level: formValues.level,
+            abstract: formValues.abstract,
+            voters: []
 
-        // }
+        }
+
+        console.log(session);
     }
 }
