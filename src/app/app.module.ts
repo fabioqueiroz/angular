@@ -51,8 +51,8 @@ declare let toastr: Toastr;
   providers: [
     EventService, 
     { provide: TOASTR_TOKEN, useValue: toastr }, 
-    EventRouteActivator,
-    AuthService,
+    EventRouteActivator, // same as { provide: EventRouteActivator, useValue: EventRouteActivator }
+    AuthService, // depending on the scenario this could also be used with a specifi class like { provide: AuthService, useClass: EventService }
     EventsListResolver,
     { provide: 'canDeactivateCreateEvent', useValue: checkCancelState}
   ],
