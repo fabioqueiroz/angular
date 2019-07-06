@@ -9,7 +9,7 @@ import {
 
 } from './events/index';
 import { Error404Component } from './errors/404.component';
-// import { UserModule } from './user/user.module';
+import { UserModule } from './user/user.module';
 
 
 export const appRoutes: Routes = [
@@ -19,8 +19,8 @@ export const appRoutes: Routes = [
     { path: 'events/session/new', component: CreateSessionComponent },
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/events', pathMatch: 'full'},
-    { path: 'user', loadChildren: './user/user.module#UserModule'},
-    // { path: 'user', loadChildren: () => UserModule}
+    // { path: 'user', loadChildren: './user/user.module#UserModule'},
+    { path: 'user', loadChildren: () => UserModule}
 ]; 
 
 
